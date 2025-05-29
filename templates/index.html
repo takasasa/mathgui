@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MathGUI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- MathJax -->
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <!-- 外部CSS -->
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Math Expression Recognition</h1>
+
+        <label for="promptInput">Prompt:</label><br>
+        <textarea id="promptInput" rows="3" cols="80"></textarea><br>
+
+        <label for="macrosInput">LaTeX Macros:</label><br>
+        <textarea id="macrosInput" rows="5" cols="80"></textarea>
+
+        <h2>Draw your expression:</h2>
+        <div class="toolbar">
+            <button id="undoBtn">Undo</button>
+            <button id="redoBtn">Redo</button>
+            <button id="clearBtn">Clear</button>
+            <button id="eraserToggle">Eraser OFF</button>
+        </div>
+
+        <canvas id="canvas" width="600" height="300"></canvas>
+
+        <div class="toolbar">
+            <button id="convertBtn">Send & Convert</button>
+            <button id="copyBtn">Copy LaTeX Code</button>
+        </div>
+
+        <h2>Recognized LaTeX Code:</h2>
+        <div id="latexDisplay"></div>
+
+        <h2>Rendered Output:</h2>
+        <div id="rendered"></div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>

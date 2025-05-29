@@ -1,0 +1,115 @@
+/* === 全体設定 === */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+/* === メインコンテナ === */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 40px auto;
+  background-color: #ffffff;
+  padding: 2em;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* === 見出し === */
+h1, h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 1em;
+}
+
+/* === テキストエリア === */
+textarea {
+  width: 100%;
+  max-width: 100%;
+  font-size: 15px;
+  padding: 8px;
+  margin: 10px 0 20px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+/* === キャンバス === */
+canvas {
+  display: block;
+  margin: 0 auto 20px;
+  border: 2px solid #333;
+  border-radius: 8px;
+  background-color: white;
+  touch-action: none;
+}
+
+/* === ツールバー === */
+.toolbar {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+/* === ボタンスタイル === */
+button {
+  padding: 10px 20px;
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #005fa3;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* === LaTeX出力エリア === */
+#latexDisplay {
+  margin-top: 10px;
+  padding: 12px;
+  background: #f9f9f9;
+  border-left: 4px solid #0077cc;
+  font-family: monospace;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* === レンダリング出力エリア === */
+#rendered {
+  margin-top: 20px;
+  padding: 12px;
+  background: #fff;
+  border: 1px dashed #aaa;
+  border-radius: 6px;
+  min-height: 50px;
+}
+
+/* === レスポンシブ対応 === */
+@media (max-width: 600px) {
+  .container {
+    padding: 1em;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 8px 14px;
+  }
+
+  textarea {
+    font-size: 14px;
+  }
+}
