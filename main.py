@@ -7,6 +7,20 @@ import os
 from io import BytesIO
 from PIL import Image
 import openai
+from dotenv import load_dotenv
+import os
+from pathlib import Path
+
+# .env ファイルがある場合は読み込む（なければ無視）
+env_path = Path("/app/.env")
+if env_path.exists():
+    load_dotenv(dotenv_path=env_path)
+
+# 環境変数の取得（.env から or Render の設定から）
+api_key = os.getenv("OPENAI_API_KEY")
+
+if not api_key:
+    raise RuntimeError("OPENAI_API_KEY is not set in environment or .env file")
 
 app = FastAPI()
 
@@ -65,6 +79,12 @@ async def convert_to_latex(request: Request):
                                     "Please extract only the mathematical expression from the image and return it as raw LaTeX code, without any explanations or markdown formatting such as ```latex. "
                                     "Do not include any explanation. If there is noise or unrecognizable parts, omit them. "
                                     "Use standard LaTeX formatting. Assume the image contains only one expression. "
+                                    "Carefully determine whether each letter in the formula represents a scalar, vector, or matrix, based on the meaning of the formula."
+                                    "For example:"
+                                    "– A matrix multiplied by a vector should result in a vector."
+                                    "– A matrix multiplied by a matrix should result in a matrix."
+                                    "– A vector added to a vector should result in a vector."
+                                    "– A matrix added to a matrix should result in a matrix."
                                     f"If any LaTeX macro definitions are provided separately, you may assume they are pre-defined and can be used as-is in the expression. Here are the defined macros: {macros}"
                                 )+prompt
                             },

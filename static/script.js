@@ -1,7 +1,7 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
-canvas.width = 1600;
-canvas.height = 600;
+canvas.width = 1200;
+canvas.height = 400;
 
 let drawing = false;
 let currentPath = [];
@@ -19,8 +19,8 @@ ctx.strokeStyle = 'black';
 const macroBox = document.getElementById('macrosInput');
 const promptBox = document.getElementById('promptInput');
 if (macroBox && promptBox) {
-    macroBox.value = "\\newcommand{\\R}{\\mathbb{R}}\n\\newcommand{\\vct}[1]{\\mathbf{#1}}\n\\newcommand{\\gvct}[1]{\\boldsymbol{#1}}";
-    promptBox.value = "Vectors and matrices should be expressed with \\vct (latin) or \\gvec (greek).\nCharacters decorated with double lines should be recognized as vectors or matrices.\nCarefully determine whether the letters in the formula are scalars, vectors, or matrices, considering the meaning of the formula.";
+    macroBox.value = "\\newcommand{\\R}{\\mathbb{R}}\n\\newcommand{\\vct}[1]{\\mathbf{#1}}\n\\newcommand{\\gvct}[1]{\\boldsymbol{#1}}\n\\newcommand{\\mat}[1]{\\mathbf{#1}}\n\\newcommand{\\gmat}[1]{\\boldsymbol{#1}}";
+    promptBox.value = "Vectors and matrices should be expressed using \\vct (for Latin vectors), \\gvec (for Greek vectors), \\mat (for Latin matrices), and \\gmat (for Greek matrices). \nCharacters with double lines should be interpreted as vectors if they are lowercase letters, and as matrices if they are uppercase letters. ";
 }
 
 function redraw() {
